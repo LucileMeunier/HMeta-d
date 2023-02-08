@@ -16,6 +16,8 @@
 # nR_S1 and nR_S2 should be two vectors
 # cov is a n x s matrix of covariates, where s=number of subjects, n=number of covarient
 # model output is a large mcmc list and two vectors for d1 and c1
+#
+#LMD 2023
 
 #########################
 
@@ -69,7 +71,7 @@ fit_meta_d_regression <- function (nR_S1, nR_S2) {
   
   d1 <- c(d1[1:Nsubj,1])
   c1 <- c(c1[1:Nsubj,1])
-  cov <- c(cov[1:Nsubj,1])
+  cov <- as.matrix(cov)
   
   # Data preparation for model
   counts <- t(nR_S1[[1]]) %>%
